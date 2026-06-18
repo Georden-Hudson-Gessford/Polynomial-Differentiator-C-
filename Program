@@ -1,10 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
-//string::npos +1 wraps to 0!!!
-// g++ Derivative4.cpp -o ex
-// 5x^2+4x^-2+4x^3+4+x+5
-// 5x^2
+
 
 using namespace std;
 
@@ -15,8 +12,6 @@ struct terms {
  string exponent = "";
  string sign = "";
  string var = "";
-
-
 
 
 };
@@ -81,10 +76,6 @@ startpos = endpos;
 
 
 
-
-
-
-
 if (destroy ==  string::npos) {
 
 break;
@@ -94,9 +85,6 @@ break;
 
 return terms;
 };
-
-
-
 
 
 
@@ -194,9 +182,6 @@ return pieces;
 
 
 
-
-
-
 void differentiate(vector<terms> t) {
 
 std::cout << " Your differentiated function is ";
@@ -251,9 +236,6 @@ exponentval = exponentplace - 1;
 
 
 
-
-
-
 if (noexp == true)
 d.dexponent = "";
 
@@ -265,8 +247,6 @@ else
 d.dexponent = to_string(exponentval);
 
 
-
-
 if (t[i].exponent.find("-") != string::npos)
 neg_exp = true;
 
@@ -275,8 +255,6 @@ if( goodbye_exponent == false) {
 d.dexponent = "^" + d.dexponent;
 
 }
-
-
 
 if (goodbye_exponent == true)
 d.dvar = "";
@@ -311,16 +289,9 @@ std::cout  << d.dsign << d.dcoefficient << d.dvar << d.dexponent << " ";
 
 
 
-
-
-
 }
 
 }
-
-
-
-
 
 
 
