@@ -26,5 +26,7 @@ Output:
 - Structs
 
 ## Future Improvements
-
+- Decompose Functions
+- Handle large numbers
+- Reduce no. flags
 - Trigonometric functions
