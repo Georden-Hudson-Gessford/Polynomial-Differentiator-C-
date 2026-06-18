@@ -1,0 +1,343 @@
+#include <iostream>
+#include <vector>
+#include <cstring>
+//string::npos +1 wraps to 0!!!
+// g++ Derivative4.cpp -o ex
+// 5x^2+4x^-2+4x^3+4+x+5
+// 5x^2
+
+using namespace std;
+
+struct terms {
+
+
+ string coefficient = "";
+ string exponent = "";
+ string sign = "";
+ string var = "";
+
+
+
+
+};
+
+struct diffterms {
+    
+    string dcoefficient = "";
+ string dexponent = "";
+ string dsign = "";
+ string dvar = "";
+
+
+};
+
+vector<string> termsplit(string e) {
+//find different terms by the sign between them
+//send to another function to split terms
+//differentiate the terms
+//put int a string and print
+
+
+
+size_t startpos = 0;
+size_t endpos = 0;
+size_t destroy = 0;
+string term;
+vector<string> terms;
+
+
+
+for(int i = 0; endpos != string::npos ;i++) {
+ 
+endpos = e.find_first_of("+-", startpos+1);
+if (endpos == string::npos) {
+endpos = e.size();
+destroy = string::npos;
+}
+
+
+
+
+
+
+
+
+
+
+if (e.substr(endpos -1, 1) == "^") {
+
+
+
+endpos = e.find_first_of("+-", endpos + 1);
+}
+term = e.substr(startpos, endpos - startpos);
+
+
+
+terms.push_back(term);
+
+startpos = endpos;
+
+
+
+
+
+
+
+
+if (destroy ==  string::npos) {
+
+break;
+
+} 
+}
+
+return terms;
+};
+
+
+
+
+
+
+vector<terms> pieces(vector<string> t){
+
+   
+vector<terms> pieces;
+size_t caret;
+size_t variables;
+size_t coef;
+size_t signs;
+size_t endexp;
+
+
+for (int i = 0; i < t.size(); i++) {
+bool noexp = false;
+bool novar = false;
+bool negexp = false;
+bool nocoef = false;
+terms p;
+p.exponent = "";
+p.sign = "";
+p.var = "";
+p.coefficient = "";
+
+
+
+
+caret = t[i].find("^"); 
+if (caret == string::npos)
+noexp = true;
+
+if (caret != string::npos)
+endexp = t[i].size();
+
+variables = t[i].find("x");
+if (variables == string::npos) 
+novar = true;
+    
+if (caret != string::npos && (   t[i].substr(caret +1, 1)     == "-"    ))
+negexp = true;
+
+coef = t[i].find_first_of("123456789");
+if ( caret != string::npos && coef > caret)
+nocoef = true;
+
+if (coef == string::npos)
+nocoef = true;
+
+
+signs = t[i].find_first_of("+-");
+
+if (caret != string::npos && signs == caret + 1) {
+    negexp = true;
+    signs = string::npos;
+}
+
+if (novar == false) 
+p.var = "x";
+else if (novar == true)
+p.var = "";
+
+if((coef != string::npos && nocoef == false) && novar == false)
+p.coefficient = t[i].substr(coef, variables - coef);
+
+else if (coef != string::npos && novar == true)
+p.coefficient = t[i].substr(coef);
+
+
+if ( noexp == false)
+p.exponent = t[i].substr(caret, endexp - caret);
+else if (noexp == true && novar == false)
+p.exponent = "^1";
+else if (noexp == true && novar == true)
+p.exponent = "";
+
+
+
+
+if (signs != string::npos)
+p.sign = t[i].substr(0, 1);
+
+
+pieces.push_back(p);
+
+
+
+
+
+}
+
+return pieces;
+
+}
+
+
+
+
+
+
+void differentiate(vector<terms> t) {
+
+std::cout << " Your differentiated function is ";
+
+for (int i = 0; i < t.size(); i++) {
+int coefficientplace = 0;
+int exponentplace = 0;
+int coefficientval = 0;
+int exponentval = 0;
+
+diffterms d;
+
+bool neg_exp = false;
+bool neg_sign = false;
+bool goodbye_exponent = false;
+bool noexp = false;
+bool nocoefficient = false;
+bool differentiating_a_constant = false;
+
+
+
+
+
+if (t[i].exponent == "") {
+noexp = true;
+differentiating_a_constant = true; }
+
+if (t[i].coefficient == "")
+nocoefficient = true;
+
+//cout << "check nocoefficient bool" << nocoefficient << "\n";
+//cout << "debug check expo " << t[i].exponent << "\n";
+
+if (noexp == false) {
+size_t exponent_pos = t[i].exponent.find_first_of("123456789");
+string useful_exponent = t[i].exponent.substr(exponent_pos);
+exponentplace = stoi(useful_exponent); 
+if (t[i].exponent.find("-") != string::npos)
+exponentplace *= -1;}
+
+if (t[i].coefficient == "")
+coefficientplace = 1;
+else 
+coefficientplace  = stoi(t[i].coefficient);
+
+
+if( noexp == false) {
+coefficientval = exponentplace * coefficientplace;
+exponentval = exponentplace - 1;
+ d.dcoefficient = to_string(coefficientval);
+}
+
+
+
+
+
+
+if (noexp == true)
+d.dexponent = "";
+
+if(exponentval == 0){
+goodbye_exponent = true;
+noexp = true;
+d.dexponent = "";}
+else
+d.dexponent = to_string(exponentval);
+
+
+
+
+if (t[i].exponent.find("-") != string::npos)
+neg_exp = true;
+
+if( goodbye_exponent == false) {
+
+d.dexponent = "^" + d.dexponent;
+
+}
+
+
+
+if (goodbye_exponent == true)
+d.dvar = "";
+else
+d.dvar = "x";
+
+
+
+if (t[i].sign.find("-") != string::npos)
+neg_sign = true;
+
+
+if ( neg_exp && neg_sign )
+d.dsign = "+";
+
+if (neg_exp == false)
+d.dsign = t[i].sign; 
+
+
+if(differentiating_a_constant == true) {
+d.dsign = "";
+d.dcoefficient = "";
+d.dexponent = "";
+d.dvar = "";
+}
+
+if (goodbye_exponent == true)
+d.dexponent = "";
+
+
+std::cout  << d.dsign << d.dcoefficient << d.dvar << d.dexponent << " ";
+
+
+
+
+
+
+}
+
+}
+
+
+
+
+
+
+
+
+int main() {
+
+vector<string> termstring;
+vector<terms> inpieces;
+string expression;
+
+getline(cin, expression);
+
+termstring = termsplit(expression);
+
+inpieces = pieces(termstring);
+
+differentiate(inpieces);
+
+
+}
