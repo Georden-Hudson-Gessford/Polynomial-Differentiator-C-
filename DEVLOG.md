@@ -49,5 +49,5 @@ I think chain rule will be treated recursively
   * I am aiming to combine functions and minimize code
   * Prevent copying strings of vectors when i implement recursion
   * Utilize a depth counter for nesting
-  * tokenization
+  * tokenization??
   * Full overview before continuing and resume programming beyond today.
