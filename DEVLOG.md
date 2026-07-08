@@ -40,7 +40,14 @@ I think chain rule will be treated recursively
 
 
 
-  7-8
+7-8
   * I am looking to move slower with the pruning function
   * It requires a great deal of recursion i am unfamiliar with  and is on a scale i have yet to deal with
   * I am going to move slower with this process and take time to learn better structures and a way to analyze before it becomes catastrophic.
+
+7-8
+  * I am aiming to combine functions and minimize code
+  * Prevent copying strings of vectors when i implement recursion
+  * Utilize a depth counter for nesting
+  * tokenization
+  * Full overview before continuing and resume programming beyond today.
