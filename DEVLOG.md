@@ -51,3 +51,6 @@ I think chain rule will be treated recursively
   * Utilize a depth counter for nesting
   * tokenization??
   * Full overview before continuing and resume programming beyond today.
+7-8
+* Converted 5 functions into 1 whilst reducing size by approx 150 lines.
+* Using a depth counter and searching char by char is more efficient
