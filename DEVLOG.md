@@ -63,7 +63,7 @@ Version 4 and beyond
 * so d/dx -5cos = 5sin
 * right now a + is added for a positive polynomial but in the end i will remove a + if it is the very first output of the final expression (after all operations)
 * so that will be done in main.
-* Note: a chain rule such as (-e^(3x^4 + sin(x)) will be treated as u = -e, v = (3x^4+sin(x)). v will split terms and differentiate with sin(x) calling chain
+* Note: a chain rule such as (-e^(3x^4 + sin(x)) will be treated as u = -e^, v = (3x^4+sin(x)). v will split terms and differentiate with sin(x) calling chain
 * v' * u'(v)
 * e^-() will be considered as a bad case as the negative was not distributed and simplified
 * A pruning function to delete these terms will be created.
