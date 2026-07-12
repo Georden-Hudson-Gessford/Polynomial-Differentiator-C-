@@ -77,4 +77,4 @@ Version 4 and beyond
 * Created functions to differentiate sin and cos
 * setup other differentiation functions
 * sin^2 will not be accepted and must be written as (sin)^2 for chain rule
-* Tomorrow the rest of functions will be written (tan,ln,e) and then chain rule will begin 
+* Tomorrow the rest of functions will be written (tan,ln,e) and then pruning function will begin 
