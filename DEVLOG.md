@@ -78,3 +78,9 @@ Version 4 and beyond
 * setup other differentiation functions
 * sin^2 will not be accepted and must be written as (sin)^2 for chain rule
 * Tomorrow the rest of functions will be written (tan,ln,e) and then pruning function will begin 
+
+7-12
+* tan, ln,e differentiation finished
+* organized the differentiation function to help catch unpruned functions just in case
+* I saw the opportunity for it to help a little bit through some decisions and decided it was helpful this way
+* I might be able to remove some code from the polynomial differentiator as a result as simple coefficients will already be removed.
