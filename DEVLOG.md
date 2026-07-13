@@ -81,6 +81,7 @@ Version 4 and beyond
 
 7-12
 * tan, ln,e differentiation finished
+* Much of the code for each differentiation is exactly the same so i will create another function to offload those segments.
 * organized the differentiation function to help catch unpruned functions just in case
 * I saw the opportunity for it to help a little bit through some decisions and decided it was helpful this way
 * I might be able to remove some code from the polynomial differentiator as a result as simple coefficients will already be removed.
