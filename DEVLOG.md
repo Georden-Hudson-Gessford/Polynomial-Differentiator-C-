@@ -85,3 +85,10 @@ Version 4 and beyond
 * organized the differentiation function to help catch unpruned functions just in case
 * I saw the opportunity for it to help a little bit through some decisions and decided it was helpful this way
 * I might be able to remove some code from the polynomial differentiator as a result as simple coefficients will already be removed.
+
+  7-13/14
+  *Everything is finished and recursion for chain rule is working although the result is a little crude to read but is accurate
+  *7/15 will be spent optimizing and creating  a pruning function as well as testing
+  *Beyond that point active development should end
+  *I will try and make e^x valid instead of having to be written e^(x)
+  *A menu explaining how to input will be opened from main.
