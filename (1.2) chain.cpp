@@ -3,7 +3,7 @@
 #include "Differentiator.h"
 #include "parser.h"
 #include "Route.h"
-// g++ chain.cpp Differentiator.cpp  Poly_differ.cpp Route.cpp  Parser.cpp -o we
+
 constexpr std::string::size_type not_found = std::string::npos;
 
 typedef std::string derivative;
