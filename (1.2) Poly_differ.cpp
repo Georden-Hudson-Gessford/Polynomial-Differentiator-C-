@@ -4,10 +4,6 @@ constexpr std::string::size_type not_found = std::string::npos;
 typedef size_t pos;
 
 
-//   g++ Poly_differ.cpp -o exe
-
-
-
 
 
 //Function 1
