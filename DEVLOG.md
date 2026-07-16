@@ -92,3 +92,16 @@ Version 4 and beyond
   *Beyond that point active development should end
   *I will try and make e^x valid instead of having to be written e^(x)
   *A menu explaining how to input will be opened from main.
+
+  7/15
+  * Improved code readibility
+  * Added menu function
+  * A scare occured when i realized functions such as (   )^4 could not be handled which is a very common case of chain rule
+  * Luckily i was very easily able to add this functionality through just a  few lines of code in the chain rule function
+  * Improved readibility of the output, though chain rule is not kind on the eyes with highly nested functions
+  * created a coefficient finder for the differentiator file.
+  * The file originally had each function with a segment of identical code for coeffiicents, so I made that piece a function they call on.
+  * Fixed an issue where signs between some polynomials were ++ instead of +
+  * Fixed an issue where large coeffiicents of functions were losing digits I.E 500cos was -50sin instead of -500sin
+  
+  
